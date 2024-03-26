@@ -51,7 +51,7 @@ class BLIP_Pretrain(nn.Module):
         self.tokenizer = init_tokenizer()   
         encoder_config = BertConfig.from_json_file(med_config)
         encoder_config.encoder_width = vision_width
-        self.text_encoder = BertModel.from_pretrained('bert-base-uncased',config=encoder_config, add_pooling_layer=False)
+        self.text_encoder = BertModel.from_pretrained('aubmindlab/bert-base-arabertv2',config=encoder_config, add_pooling_layer=False) #TODO change the following checkpoint
         self.text_encoder.resize_token_embeddings(len(self.tokenizer)) 
 
         text_width = self.text_encoder.config.hidden_size
@@ -89,7 +89,7 @@ class BLIP_Pretrain(nn.Module):
         # create the decoder
         decoder_config = BertConfig.from_json_file(med_config)
         decoder_config.encoder_width = vision_width        
-        self.text_decoder = BertLMHeadModel.from_pretrained('bert-base-uncased',config=decoder_config)    
+        self.text_decoder = BertLMHeadModel.from_pretrained('aubmindlab/bert-base-arabertv2',config=decoder_config)  #TODO change the following checkpoint
         self.text_decoder.resize_token_embeddings(len(self.tokenizer)) 
         tie_encoder_decoder_weights(self.text_encoder,self.text_decoder.bert,'','/attention')
         

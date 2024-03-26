@@ -7,7 +7,7 @@
 '''
 import argparse
 import os
-import ruamel_yaml as yaml
+import ruamel.yaml as yaml
 import numpy as np
 import random
 import time
@@ -26,6 +26,7 @@ from models.blip_pretrain import blip_pretrain
 import utils
 from utils import warmup_lr_schedule, step_lr_schedule
 from data import create_dataset, create_sampler, create_loader
+from rich import print
 
 def train(model, data_loader, optimizer, epoch, device, config):
     # train

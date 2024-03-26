@@ -552,7 +552,7 @@ class BertPreTrainedModel(PreTrainedModel):
     """
 
     config_class = BertConfig
-    base_model_prefix = "bert"
+    base_model_prefix = "bert" #TODO Check if we need to change this 
     _keys_to_ignore_on_load_missing = [r"position_ids"]
 
     def _init_weights(self, module):

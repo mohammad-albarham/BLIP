@@ -1,0 +1,8 @@
+dataset_files/train2014.zip
+BLIP/coco_images/*
+*/__pycache__/*
+dataset_files/*
+coco_images/*
+*.jpg
+*.pth
+*.pyc
